@@ -1,8 +1,8 @@
 import numpy as np
 from gates import h_gate,x_gate
+from utils import calculate_operator
 
 class Simulator():
-
 
     def __init__(self, n_qubits):
         self.n_qubits = n_qubits
@@ -15,7 +15,7 @@ class Simulator():
     
     def get_operator(self, gate, t_qubits):
 
-        if n_qubits == 1:
+        if self.n_qubits == 1:
             
             if gate == "h_gate":
                 return h_gate
@@ -23,7 +23,8 @@ class Simulator():
             if gate == "x_gate":
                 return x_gate
         
+        return calculate_operator(gate, t_qubits, self.n_qubits)
+    
+    def measure(self):
         
-
-
     
