@@ -1,2 +1,2 @@
-print("first")
+from simulator import *
 
