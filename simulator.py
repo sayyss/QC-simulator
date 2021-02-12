@@ -36,7 +36,7 @@ class Simulator():
         
         else:
             if self.n_qubits > 1:
-                self.s_vector = np.dot(self.s_vector, self.get_operator(gate,t_qubits))
+                self.s_vector = np.dot(self.s_vector, self.get_operator(gate,t_qubits[0]))
             else:
                 self.s_vector = np.dot(self.s_vector,self.gates[gate])
                 

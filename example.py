@@ -5,7 +5,7 @@ from gates import h_gate,x_gate, iden
 simulator = Simulator(3)
 
 # Apply gates
-simulator.apply_gate('h',0)
+simulator.apply_gate('h',[0])
 simulator.apply_gate("cx",[0,1])
 
 # Measure
