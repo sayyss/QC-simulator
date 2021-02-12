@@ -1,5 +1,5 @@
 import numpy as np
-from gates import h_gate,x_gate
+from gates import h_gate,x_gate, iden
 from utils import calculate_operator
 
 class Simulator():
@@ -14,17 +14,23 @@ class Simulator():
         return self.s_vector
     
     def get_operator(self, gate, t_qubits):
+        return
 
-        if self.n_qubits == 1:
-            
-            if gate == "h_gate":
-                return h_gate
-            
-            if gate == "x_gate":
-                return x_gate
+    def single_gate_operator(self,gate,n_qubits, target_qubit):
         
-        return calculate_operator(gate, t_qubits, self.n_qubits)
+        operator = ["i"]*n_qubits
+        operator[0] = "u"
+        operator[0], operator[target_qubit] =  operator[target_qubit], operator[0]
+        
+        result = iden if operator[0] == "i" else gate
+        
+        for i in operator[1:]:
+            if i == "u":
+                result = np.kron(result,gate)
+            else:
+                result = np.kron(result,iden)
+        
+        return result
     
-    def measure(self):
-        
+ 
     
