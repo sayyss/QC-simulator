@@ -11,5 +11,11 @@ x_gate = np.array([[0, 1],
 h_gate = np.array([[1/np.sqrt(2), 1/np.sqrt(2)],
               [1/np.sqrt(2), -1/np.sqrt(2)]])
 
+# CNOT gate
+
+cnot = np.array([[1,0,0,0],
+                [0,1,0,0],
+                [0,0,0,1],
+                [0,0,1,0]])
 # Rotation gate
 
