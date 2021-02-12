@@ -54,11 +54,12 @@ class Simulator():
         temp_p0x0, temp_p1x1 = p0x0,p1x1
         g_1 = g_2 = np.array([1])
 
-        for i in range(self.n_qubits):
+        for i in range(self.n_qubits-1):
 
             if i == c_qubit:
                 g_1 = np.kron(g_1,temp_p0x0)
                 g_2 = np.kron(g_2,temp_p1x1)
+ 
             
             if i == t_qubit:
                 g_1 = np.kron(g_1,iden)
@@ -68,8 +69,10 @@ class Simulator():
                 g_1 = np.kron(g_1,iden)
                 g_2 = np.kron(g_2,iden)
         
-        operator = g_1 + g_2
 
+        operator = np.add(g_1,g_2)
+        print(np.shape(operator))
+        print(np.shape(self.s_vector))
         return operator
         
     def measure(self):
