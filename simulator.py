@@ -47,16 +47,17 @@ class Simulator():
         return result
 
     def cnot_operator(self,gate,t_qubits):
-        return cnot
+        if self.n_qubits > 2:
+            return
+        else:
+            return cnot
     
     def measure(self):
 
-        print(self.s_vector)
         prob = np.abs(self.s_vector)**2
-        print(prob)
-        index = np.arange(self.n_qubits)
-        print(index)
-        measure = random.choices(index, weights=prob, k=1)
+        indexes = np.arange(np.size(self.s_vector))
+
+        measure = random.choices(indexes, weights=prob, k=1)
 
         return bin(measure[0])
     
