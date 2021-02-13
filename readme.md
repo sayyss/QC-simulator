@@ -18,7 +18,7 @@
 from simulator import Simulator
 from gates import h_gate,x_gate, iden
 
-# Create a quantum "computer" with 3 qubits
+# Create a quantum "circuit" with 3 qubits
 simulator = Simulator(3)
 
 # Apply gates(gate, target qubit)
