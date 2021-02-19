@@ -1,6 +1,6 @@
 import numpy as np
 import random
-from gates import h_gate, x_gate, iden
+from gates import h_gate, x_gate,y_gate, z_gate, iden
 from utils import cnot_operator, single_gate_operator
 
 class Simulator():
@@ -9,6 +9,8 @@ class Simulator():
     gates = {
         "h": h_gate,
         "x": x_gate,
+        "y": y_gate,
+        "z": z_gate,
         "cx": None
     }
 
